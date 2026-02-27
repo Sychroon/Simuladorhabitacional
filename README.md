@@ -1,51 +1,4 @@
-RELATÓRIO TÉCNICO DE IMPLEMENTAÇÃO: SISTEMA FRONT-END WEB
-Disciplina: Front-End Web
- Docente: H. Burratto
- Discente: J. Victor Lima de Araujo
-
-1. INTRODUÇÃO E ESCOPO
-Este relatório documenta o desenvolvimento do Projeto Final da disciplina de Front-End Web.
-O artefato produzido visa demonstrar domínio técnico em:
-Estruturação semântica
-
-
-Estilização responsiva
-
-
-Programação funcional de interfaces
-
-
-O projeto cumpre integralmente as normas de entrega e os critérios de avaliação estabelecidos.
-
-2. PROTOCOLO METODOLÓGICO DE ENTREGA
-A submissão do projeto fundamenta-se na transparência e acessibilidade do código:
-Versionamento Distribuído: Hospedagem integral do código-fonte em repositório GitHub.
-
-
-Ambiente de Produção: Publicação do sistema via GitHub Pages, garantindo funcionalidade imediata via navegador.
-
-
-Repositório de Backup: Disponibilização de arquivo comprimido (.zip) via Google Drive.
-
-
-
-3. ARQUITETURA TÉCNICA E REQUISITOS
-A construção do software seguiu padrões estruturados de desenvolvimento:
-Estrutura Semântica (HTML5): Utilização de tags estruturais adequadas e indentação organizada, visando otimização e acessibilidade.
-
-
-Estilização e Responsividade (CSS3): Implementação de design adaptável para múltiplos dispositivos, com foco em hierarquia visual e tipografia.
-
-
-Interatividade (JavaScript): Manipulação dinâmica do DOM e tratamento de eventos para garantir experiência de usuário funcional.
-
-
-Organização de Diretórios: Separação de arquivos em pastas específicas para CSS, JavaScript e recursos estáticos.
-
-
-
-4. DOCUMENTAÇÃO TÉCNICA (README.md)
-4.1 Descrição do Sistema (Mini-Mundo)
+Descrição do Sistema (Mini-Mundo)
 O projeto consiste em um Simulador Financeiro de Financiamento Imobiliário, com foco nas linhas de crédito da Caixa Econômica Federal, incluindo o programa Minha Casa Minha Vida.
 A aplicação permite que o usuário insira seus dados financeiros e obtenha uma simulação detalhada do financiamento, apresentando:
 Taxa de juros aplicada
@@ -104,5 +57,5 @@ Preencher os campos à esquerda após a execução
 
 
 
-4.4 Autoria e Licença
+Autoria e Licença
 Projeto desenvolvido por João Victor Lima de Araújo , sob licença acadêmica para a disciplina de Front-End Web.
