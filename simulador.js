@@ -52,17 +52,25 @@ function calcularIdade(dataNascimento) {
 
 // Calcula DFI baseado no valor financiado
 function calcularDFI(valorFinanciado) {
-    const taxaDFI = 0.00008875; // Ajustada para bater mais próximo do simulador Caixa
+    const taxaDFI = 0.000071; // Ajustada para bater mais próximo do simulador Caixa
     return valorFinanciado * taxaDFI;
 }
 
 // calcula taxa MIP baseada na idade do comprador
 function taxaMIP(idade) {
-    if (idade <= 25) return 0.000082;
-    if (idade <= 35) return 0.00018;
-    if (idade <= 45) return 0.00030;
-    return 0.00045;
+    if (idade <= 30) return 0.000085; // O valor que você validou
+    if (idade <= 35) return 0.000123;
+    if (idade <= 40) return 0.000179;
+    if (idade <= 45) return 0.000268;
+    if (idade <= 50) return 0.000431;
+    if (idade <= 55) return 0.000798;
+    if (idade <= 60) return 0.001391;
+    if (idade <= 65) return 0.002528;
+    if (idade <= 70) return 0.004187;
+    if (idade <= 80) return 0.006155;
+    return 0;
 }
+
 
 // Calcula MIP baseado no saldo devedor e idade do comprador
 function calcularMIP(saldoDevedor, idade) {
@@ -89,12 +97,12 @@ function calcularPrazo(idadeAnos, prazoEntregaMeses) {
     // Limita prazo de entrega a no máximo 36 meses
     if (prazoEntregaMeses < 0) prazoEntregaMeses = 0;
 
-    const idadeMaximaMeses = 80 * 12; // 80 anos
+    const idadeMaximaMeses = 80 * 12; // 80 anos e 6 meses
     const idadeAtualMeses = idadeAnos * 12;
 
     let prazoMaximo = idadeMaximaMeses - (idadeAtualMeses + prazoEntregaMeses);
 
-    if (prazoMaximo > 420) prazoMaximo = 420; // limite 35 anos
+    if (prazoMaximo > 420) prazoMaximo = 420; // limite 35 anos e 6 meses
     if (prazoMaximo < 1) prazoMaximo = 1;
 
     return prazoMaximo;
@@ -134,12 +142,17 @@ function atualizarParcela() {
     if (prazoEntrega > 36) {
         elementos.parcelaMensal.textContent = "Prazo de entrega não pode ser maior que 36 meses";
         return;
+
     }
+
 
     // IDADE E PRAZO MÁXIMO
     const idade = calcularIdade(dataNascimento);
     const n = calcularPrazo(idade, prazoEntrega);
-
+    if (idade < 18) {
+        elementos.parcelaMensal.textContent = "Data de nascimento inválida";
+        return;
+    }
 
     // TAXA DE JUROS MENSAL
 
@@ -147,24 +160,36 @@ function atualizarParcela() {
 
 
     // LOOP DE APROXIMAÇÃO de mip e dfi para garantir que a parcela mensal não ultrapasse 30% da renda
-
-    let V = valordeAvaliacao * 0.8; // valor inicial financiado (máximo)
-    let dfi = calcularDFI(V);
-    let mip = calcularMIP(V, idade);
-
+    //V = valor financiado, que começa como 80% do valor de avaliação e é ajustado iterativamente
+    // Configurações Iniciais (Exemplo 2026)
+    let V = valordeAvaliacao * 0.8;
     const teto = renda * 0.3;
+    const taxaAdministracao = 25.00; // Taxa mensal Caixa
+
+    // DFI: Calculado uma única vez sobre o valor total do imóvel
+    let dfi = calcularDFI(valordeAvaliacao);
+
+    let mip = calcularMIP(V, idade);
     let parcelaBase = V * ((1 + I) ** n * I) / ((1 + I) ** n - 1);
     let total = parcelaBase + dfi + mip + taxaAdministracao;
 
     let iter = 0;
-    while ((total - teto) > 0.01 && iter < 1000) {
-        const diferenca = total - teto;
-        const ajuste = diferenca / (1 + I);
-        V -= ajuste;
-        parcelaBase = V * ((1 + I) ** n * I) / ((1 + I) ** n - 1);
-        dfi = calcularDFI(V);
+    // O loop ajusta V até que o total caiba no teto de 30% da renda
+    while ((total - teto) > 0.01 && iter < 100) {
+        // 1. Descobrimos quanto de "espaço" sobra para a prestação pura (sem seguros e taxas)
+        let parcelaPuraDisponivel = teto - dfi - mip - taxaAdministracao;
+
+        // 2. Aplicamos a fórmula inversa da Price para achar o novo V (Valor Presente)
+        // V = Pmt / [ ( (1+i)^n * i ) / ( (1+i)^n - 1 ) ]
+        V = parcelaPuraDisponivel / (((1 + I) ** n * I) / ((1 + I) ** n - 1));
+
+        // 3. Recalculamos o MIP (única variável que depende do novo V)
         mip = calcularMIP(V, idade);
+
+        // 4. Atualizamos o total para a próxima validação do while
+        parcelaBase = V * ((1 + I) ** n * I) / ((1 + I) ** n - 1);
         total = parcelaBase + dfi + mip + taxaAdministracao;
+
         iter++;
     }
 
@@ -205,10 +230,12 @@ function atualizarParcela() {
     elementos.parcelMax.textContent =
         parcelaBase.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-    elementos.DFIResultado.textContent = dfi.toFixed(2);
-    elementos.MIPResultado.textContent = mip.toFixed(2);
-    elementos.TxAdm.textContent = taxaAdministracao.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-
+    elementos.DFIResultado.textContent =
+        dfi.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    elementos.MIPResultado.textContent =
+        mip.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    elementos.TxAdm.textContent =
+        taxaAdministracao.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
     elementos.totalGeral.textContent =
         total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
