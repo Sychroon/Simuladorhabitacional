@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Card-Fino {
+    display: flex;
+}
+
+.Main-Conteiner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+body {
+    background-color: #f1f1f1;
+    background-image:
+        radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+}
+
+
+.input-transparente {
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* remove as setinhas do number */
+.input-transparente::-webkit-outer-spin-button,
+.input-transparente::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-transparente {
+    -moz-appearance: textfield;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #374151;
+    /* cinza profissional */
+    cursor: pointer;
+}
+
+/* checkbox estilizado */
+.check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1a3fe6;
+    /* verde profissional */
+    cursor: pointer;
+}
+
+.center {
+    padding-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-calcular {
+
+    background-color: #3d5999;
+    /* azul marinho */
+    color: #ffffff;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-calcular:hover {
+    background-color: #1e293b;
+    /* levemente mais claro no hover */
+    transform: translateY(-2px);
+}
+
+.btn-calcular:active {
+    transform: scale(0.98);
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="icons.css">
+    <link rel="stylesheet" href="Text.css">
+    <link rel="stylesheet" href="extras.css">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="Top-Bar">
+
+        <div class="logo">
+            <div class="BOX">
+                <img src="Image/image.png" alt="Logo" class="logo-image">
+            </div>
+            <span class="logo-text">Simulador Habitacional</span>
+        </div>
+
+
+
+    </header>
+    <Main class="Main-Conteiner">
+        <div class="Card">
+            <div class="Card-Header">
+                <p class="Text-Negrito-Um"> <i class="fa-solid fa-calculator icon-calculator"></i> Dados para a
+                    simulação</p>
+                <p class="text-transparente-um">Preencha suas informações para calcular o financiamento</p>
+
+            </div>
+
+            <div class="Card-Mini">
+                <div class="Card-Icon">
+                    <i class="fa-solid fa-dollar-sign icon-renda"></i>
+                    <p class="Text-Primario"> Renda mensal </p>
+                </div>
+                <section class="Card-Fino">
+                    <p class="text-transparente-um">R$</p>
+                    <input type="text" class="input-transparente input-moeda" id="RendaMensal" placeholder="0,00">
+                </section>
+            </div>
+
+            <div class="Card-Mini">
+                <div class="Card-Icon">
+                    <i class="fa-regular fa-house icon-house"></i>
+                    <p class="Text-Primario"> Valor de avaliação </p>
+                </div>
+                <section class="Card-Fino">
+                    <p class="text-transparente-um">R$</p>
+                    <input type="text" class="input-transparente input-moeda" id="ValordeAvaliacao" placeholder="0,00">
+                </section>
+            </div>
+
+            <div class="Card-Mini">
+                <div class="Card-Icon">
+                    <i class="fa-solid fa-arrow-trend-up icon-arrow"></i>
+                    <p class="Text-Primario"> Valor de Venda </p>
+                </div>
+                <section class="Card-Fino">
+                    <p class="text-transparente-um">R$</p>
+                    <input type="text" class="input-transparente input-moeda" id="ValordeVenda" placeholder="0,00">
+                </section>
+            </div>
+
+            <div class="Card-Mini">
+                <div class="Card-Icon">
+                    <i class="fa-regular fa-calendar-days icon-calendar"></i>
+                    <p class="Text-Primario"> Data de nascimento</p>
+                </div>
+                <section class="Card-Fino">
+                    <input type="date" class="input-transparente input-moeda" id="Idade" placeholder="Coloque a idade">
+                </section>
+            </div>
+
+            <div class="Card-Mini">
+                <div class="Card-Icon">
+                    <i class="fa-solid fa-users icon-users"></i>
+                    <p class="Text-Primario"> Quantidade de Compradores </p>
+                </div>
+                <section class="Card-Fino">
+                    <input type="number" class="input-transparente input-moeda" id="NCompradores"
+                        placeholder="Numero de compradores">
+                </section>
+            </div>
+            <div class="Card-Mini">
+                <div class="Card-Icon">
+                    <i class="fa-solid fa-clock icon-clock"></i>
+                    <p class="Text-Primario"> Prazo de entrega do Imóvel </p>
+                </div>
+                <section class="Card-Fino">
+                    <input type="number" class="input-transparente input-moeda" id="PrazoEntrega"
+                        placeholder="Quantidade em Meses">
+                </section>
+            </div>
+
+            <div class="card-check">
+
+                <label class="check-item">
+                    <input type="checkbox" id="dependentes">
+                    <span> <i class="fa-solid fa-users icon-users2"></i> Possuo Dependentes</span>
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox" id="cotista">
+                    <span>Possuo 3 anos de deposito FGTS</span>
+                </label>
+
+            </div>
+            <div class="center">
+                <button class="btn-calcular" onclick="atualizarParcela()">Calcular
+                    Financiamento</button>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="Card">
+            <div class="Card-Heder">
+                <p class="Text-Negrito-Um">Resultado da simulação</p>
+            </div>
+            <section class="Grid-zone-Right">
+                <div class="Card-Type1">
+                    <p> <i class="fa-regular fa-house" style="padding-right: 5px;"> </i>valor de avaliação </p>
+                    <p> <span id="Valordeavaliacao"></span></p>
+                </div>
+                <div class="Card-Type2">
+                    <p> <i class="fa-solid fa-arrow-trend-up"></i> valor de venda </p>
+                    <P><span id="ValordeVendaResultado"></span>
+                </div>
+
+                <div class="Card-Type3">
+                    <p><i class="fa-solid fa-hand-holding-dollar"></i> valor financiado</p>
+                    <p> <span id="ValorFinanciado"></span></p>
+                </div>
+
+                <div class="Card-Type4">
+                    <p><i class="fa-solid fa-wallet"></i> Entrada </p>
+                    <p> <span id="Entrada"></span></p>
+                </div>
+                <div class="Card-Type5">
+                    <p><i class="fa-solid fa-percent"></i> Taxa de Juros </p>
+                    <p> <span id="TaxadeJuros"></span></p>
+                </div>
+                <div class="Card-Type6">
+                    <p><i class="fa-solid fa-hourglass"></i> Praso </p>
+                    <p> <span id="PrazoYM"></span></p>
+                </div>
+            </section>
+            <section class="Card-CF Scrollable-Container">
+                <!-- Lista de Custos e Seguros -->
+                <div class="Resumo-Financeiro-Lista">
+                    <div class="Resumo-Item">
+                        <div class="Resumo-Label">Amortização + Juros</div>
+                        <div class="Resumo-Valor" id="ParcelMax"></div>
+                    </div>
+                    <div class="Resumo-Item">
+                        <div class="Resumo-Label">Seguro DFI</div>
+                        <div class="Resumo-Valor" id="DFI"></div>
+                    </div>
+                    <div class="Resumo-Item">
+                        <div class="Resumo-Label">Seguro MIP</div>
+                        <div class="Resumo-Valor" id="MIP"></div>
+                    </div>
+                    <div class="Resumo-Item">
+                        <div class="Resumo-Label">Taxa de Administração</div>
+                        <div class="Resumo-Valor" id="TaxaAdmin"></div>
+                    </div>
+                    <div class="Resumo-Item Total">
+                        <div class="Resumo-Label">Total</div>
+                        <div class="Resumo-Valor" id="TotalGeral"></div>
+                    </div>
+                </div>
+            </section>
+            <div class="Card-Type-Big">
+                <p> parcela mensal</p>
+                <p><span id="ParcelaMensal"></span> </p>
+                <p><span id="PorcentagemRenda"></span> da renda total </p>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+    </Main>
+    <footer style="text-align:center; padding:15px; background:#f5f5f5; font-size:14px; color:#666;">
+        © 2026 - Criado por Viktor
+    </footer>
+
+
+    <script src="Simulador.js"></script>
+</body>
+
+</html>

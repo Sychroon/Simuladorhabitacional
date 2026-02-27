@@ -1,0 +1,294 @@
+.Grid-zone-Right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
+.Card {
+    width: 500px;
+    height: 900px;
+    padding: 25px;
+    margin: 40px;
+
+
+    background-color: #ffffff;
+    border-radius: 20px;
+
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 2px 5px rgba(0, 0, 0, 0.04);
+
+    transition: 0.3s ease;
+}
+
+.Card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12),
+        0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.Card-Fino {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+
+    background-color: #e8eaf3;
+
+    border: 1px solid #e2e5e9;
+
+    border-radius: 10px;
+
+
+    font-size: 14px;
+    color: #333;
+
+    outline: none;
+    transition: 0.2s ease;
+}
+
+
+
+.Card-Heder {
+    display: flex;
+    align-items: center;
+
+    padding-left: 10px;
+    border-radius: 15px;
+    height: 35px;
+    background-color: #f5f6f8;
+}
+
+.Card-Icon {
+    align-items: center;
+    display: flex;
+    gap: 2px;
+}
+
+.card-check {
+    background: #eaedf5;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.Card-Header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 15px;
+    background: #edecf1;
+    border-radius: 16px;
+    border-bottom: 1px solid #dfe1e6;
+}
+
+.Card-Type-Juros {
+    display: flex;
+    justify-content: espace-between;
+    align-items: center;
+}
+
+
+.Card-Type1,
+.Card-Type2,
+.Card-Type3,
+.Card-Type4,
+.Card-Type5,
+.Card-Type6 {
+    width: 100%;
+    height: 100px;
+    padding: 16px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.Card-Type1 p:first-child,
+.Card-Type2 p:first-child,
+.Card-Type3 p:first-child,
+.Card-Type4 p:first-child,
+.Card-Type5 p:first-child,
+.Card-Type6 p:first-child {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.Card-Type1 p:last-child,
+.Card-Type2 p:last-child,
+.Card-Type3 p:last-child,
+.Card-Type4 p:last-child,
+.Card-Type5 p:last-child,
+.Card-Type6 p:last-child {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+
+
+.Card-Type1 {
+    background: #f3e8ff;
+
+}
+
+.Card-Type1 p:first-child {
+    color: #c084fc;
+
+}
+
+.Card-Type1 p:last-child {
+    color: #6b21a8;
+
+}
+
+
+.Card-Type2 {
+    background: #ede9fe;
+}
+
+.Card-Type2 p:first-child {
+    color: #a78bfa;
+}
+
+.Card-Type2 p:last-child {
+    color: #5b21b6;
+}
+
+
+.Card-Type3 {
+    background: #f3f4f6;
+}
+
+.Card-Type3 p:first-child {
+    color: #9ca3af;
+}
+
+.Card-Type3 p:last-child {
+    color: #374151;
+}
+
+
+.Card-Type4 {
+    background: #dcfce7;
+
+}
+
+.Card-Type4 p:first-child {
+    color: #4ade80;
+
+}
+
+.Card-Type4 p:last-child {
+    color: #166534;
+
+}
+
+
+.Card-Type5 {
+    background: #dbf4ff;
+
+}
+
+.Card-Type5 p:first-child {
+    color: #60a5fa;
+
+}
+
+.Card-Type5 p:last-child {
+    color: #1e3a8a;
+
+}
+
+
+.Card-Type6 {
+    background: #fff7ed;
+
+}
+
+.Card-Type6 p:first-child {
+    color: #fbbf24;
+
+}
+
+.Card-Type6 p:last-child {
+    color: #b45309;
+
+}
+
+
+
+.Card-Type-Big {
+    background: #1e40af;
+
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #ffffff;
+    margin-top: 15px;
+}
+
+.Card-Type-Big p {
+    margin: 0;
+}
+
+.Card-Type-Big p:first-child {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.Card-Type-Big p:nth-child(2) {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.Card-Type-Big p:last-child {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+
+.Card-CF {
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.Card-CF div {
+    background: #f9fafb;
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.Card-CF p {
+    margin: 0;
+}
+
+.Card-CF p:first-child {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.Card-CF p:last-child {
+    font-weight: 600;
+    color: #111827;
+}
+
+.Grid-zone-Right {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* CONTROLA A GRID DOS 6 CARDS */

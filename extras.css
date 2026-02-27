@@ -1,0 +1,103 @@
+.Scrollable-Container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 300px;
+
+    max-width: 100%;
+    overflow: auto;
+
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.Resumo-Financeiro-Fixos {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+
+.Resumo-Financeiro-Lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+.Resumo-Item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 300px;
+
+    padding: 4px 8px;
+}
+
+.Resumo-Item.Total {
+    font-weight: bold;
+    border-top: 1px solid #bbb;
+    padding-top: 6px;
+}
+
+.Resumo-Label {
+    color: #333;
+}
+
+.Resumo-Valor {
+    color: #111;
+    text-align: right;
+}
+
+
+.Top-Bar {
+    width: 100%;
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    padding: 18px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.logo-icon {
+    font-size: 28px;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.BOX {
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 30px;
+    width: 60px;
+    border-radius: 5PX;
+
+}
+
+.logo-image {
+
+
+    height: 25px;
+    width: 55px;
+
+}

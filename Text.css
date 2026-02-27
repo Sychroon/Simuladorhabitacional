@@ -1,0 +1,24 @@
+.Text-Primario {
+    padding: 8px 0px 8px 5px;
+    font-size: 14px;
+    color: #313131;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+
+.Text-Negrito-Um {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3d5999;
+    /* cinza escuro elegante */
+    margin: 0;
+}
+
+.text-transparente-um {
+    font-size: 14px;
+    color: #6b7280;
+    /* cinza suave */
+    margin: 0;
+}
