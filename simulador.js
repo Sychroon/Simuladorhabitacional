@@ -33,23 +33,28 @@ function moedaParaNumero(valor) {
     return parseFloat(valor.replace(/\./g, '').replace(',', '.'));
 }
 
-// Calcula idade com base na data de nascimento
 function calcularIdade(dataNascimento) {
     const hoje = new Date();
     const nascimento = new Date(dataNascimento);
 
-    let idade = hoje.getFullYear() - nascimento.getFullYear();
-    const mesAtual = hoje.getMonth();
-    const diaAtual = hoje.getDate();
-    const mesNascimento = nascimento.getMonth();
-    const diaNascimento = nascimento.getDate();
+    let anos = hoje.getFullYear() - nascimento.getFullYear();
+    let meses = hoje.getMonth() - nascimento.getMonth();
 
-    if (mesAtual < mesNascimento || (mesAtual === mesNascimento && diaAtual < diaNascimento)) {
-        idade--;
+    let totalMeses = (anos * 12) + meses;
+
+    // Se existe qualquer dia excedente
+    if (hoje.getDate() !== nascimento.getDate()) {
+        if (hoje.getDate() > nascimento.getDate()) {
+            totalMeses++;
+        }
     }
-    return idade;
-}
 
+    return totalMeses;
+}
+function calcularIdadeEmAnos(dataNascimento) {
+    const totalMeses = calcularIdade(dataNascimento);
+    return Math.floor(totalMeses / 12);
+}
 // Calcula DFI baseado no valor financiado
 function calcularDFI(valorFinanciado) {
     const taxaDFI = 0.000071; // Ajustada para bater mais próximo do simulador Caixa
@@ -59,14 +64,14 @@ function calcularDFI(valorFinanciado) {
 // calcula taxa MIP baseada na idade do comprador
 function taxaMIP(idade) {
     if (idade <= 30) return 0.000085; // O valor que você validou
-    if (idade <= 35) return 0.000123;
-    if (idade <= 40) return 0.000179;
-    if (idade <= 45) return 0.000268;
-    if (idade <= 50) return 0.000431;
-    if (idade <= 55) return 0.000798;
-    if (idade <= 60) return 0.001391;
-    if (idade <= 65) return 0.002528;
-    if (idade <= 70) return 0.004187;
+    if (idade <= 35) return 0.000108;
+    if (idade <= 40) return 0.000144;
+    if (idade <= 45) return 0.000244;
+    if (idade <= 50) return 0.000359;
+    if (idade <= 55) return 0.000645;
+    if (idade <= 60) return 0.000764;
+    if (idade <= 65) return 0.001296;
+    if (idade <= 70) return 0.001821;
     if (idade <= 80) return 0.006155;
     return 0;
 }
@@ -92,18 +97,18 @@ function calcularTaxa(rendaMensal, cotista) {
 }
 
 // Calcula prazo máximo em meses considerando a idade do comprador e o prazo de entrega do imóvel
-function calcularPrazo(idadeAnos, prazoEntregaMeses) {
+function calcularPrazo(idademeses, prazoEntregaMeses) {
 
     // Limita prazo de entrega a no máximo 36 meses
     if (prazoEntregaMeses < 0) prazoEntregaMeses = 0;
 
-    const idadeMaximaMeses = 80 * 12; // 80 anos e 6 meses
-    const idadeAtualMeses = idadeAnos * 12;
+    const idadeMaximaMeses = 80 * 12 + 6; // 80 anos e 6 meses *966 meses
+    const idadeAtualMeses = idademeses;
 
     let prazoMaximo = idadeMaximaMeses - (idadeAtualMeses + prazoEntregaMeses);
 
-    if (prazoMaximo > 420) prazoMaximo = 420; // limite 35 anos e 6 meses
-    if (prazoMaximo < 1) prazoMaximo = 1;
+    if (prazoMaximo > 420) prazoMaximo = 420; // limite 35 anos (420 meses)
+    if (prazoMaximo < 0) prazoMaximo = 0;
 
     return prazoMaximo;
 }
@@ -147,9 +152,10 @@ function atualizarParcela() {
 
 
     // IDADE E PRAZO MÁXIMO
-    const idade = calcularIdade(dataNascimento);
-    const n = calcularPrazo(idade, prazoEntrega);
-    if (idade < 18) {
+    const idadeA = calcularIdadeEmAnos(dataNascimento);
+    const idadeM = calcularIdade(dataNascimento);
+    const n = calcularPrazo(idadeM, prazoEntrega);
+    if (idadeA < 18) {
         elementos.parcelaMensal.textContent = "Data de nascimento inválida";
         return;
     }
@@ -169,7 +175,7 @@ function atualizarParcela() {
     // DFI: Calculado uma única vez sobre o valor total do imóvel
     let dfi = calcularDFI(valordeAvaliacao);
 
-    let mip = calcularMIP(V, idade);
+    let mip = calcularMIP(V, idadeA);
     let parcelaBase = V * ((1 + I) ** n * I) / ((1 + I) ** n - 1);
     let total = parcelaBase + dfi + mip + taxaAdministracao;
 
@@ -184,7 +190,7 @@ function atualizarParcela() {
         V = parcelaPuraDisponivel / (((1 + I) ** n * I) / ((1 + I) ** n - 1));
 
         // 3. Recalculamos o MIP (única variável que depende do novo V)
-        mip = calcularMIP(V, idade);
+        mip = calcularMIP(V, idadeA);
 
         // 4. Atualizamos o total para a próxima validação do while
         parcelaBase = V * ((1 + I) ** n * I) / ((1 + I) ** n - 1);
