@@ -2,13 +2,18 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .Card {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 900px;
     padding: 25px;
-    margin: 40px;
+    margin: 40px auto;
+    overflow-x: hidden;
 
 
     background-color: #ffffff;
