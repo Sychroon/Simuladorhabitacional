@@ -292,3 +292,15 @@
 }
 
 /* CONTROLA A GRID DOS 6 CARDS */
+
+.Card-Info {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+.Card-Info p {
+    margin: 0;
+}
