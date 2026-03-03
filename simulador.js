@@ -48,8 +48,74 @@ const taxaAdministracao = 25; // R$ fixos
 
 
 function moedaParaNumero(valor) {
+    // transforma string no formato pt-BR (1.234.567,89) em número 1234567.89
+    if (typeof valor !== 'string') return NaN;
     return parseFloat(valor.replace(/\./g, '').replace(',', '.'));
 }
+
+// formata um valor textual enquanto o usuário digita.
+// aceita qualquer combinação de dígitos/virgulas/pontos, mantém apenas números
+// e converte em algo como "250.000,00" ao vivo.
+function formatarMoeda(texto) {
+    // remove tudo que não for dígito
+    let digitos = texto.replace(/\D/g, '');
+    if (digitos === '') return '';
+
+    // se houver mais de 2 dígitos eliminamos zeros à esquerda para
+    // não deixarmos um "0" persistente na parte inteira
+    if (digitos.length > 2) {
+        digitos = digitos.replace(/^0+/, '');
+        if (digitos === '') {
+            // caso todos fossem zeros, mantemos dois zeros para centavos
+            digitos = '0';
+        }
+    }
+
+    let cents;
+    let inteiro;
+
+    if (digitos.length <= 2) {
+        // somente centavos, sempre com vírgula na frente
+        cents = digitos.padStart(2, '0');
+        inteiro = '';
+    } else {
+        cents = digitos.slice(-2);
+        inteiro = digitos.slice(0, -2);
+    }
+
+    if (inteiro) {
+        inteiro = inteiro.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    return (inteiro ? inteiro : '') + ',' + cents;
+}
+
+// adiciona listeners aos inputs de moeda para formatar ao digitar
+function initCurrencyInputs() {
+    const ids = ['rendaMensal', 'valordeAvaliacao', 'valordeVenda'];
+    ids.forEach((key) => {
+        const el = elementos[key];
+        if (!el) return;
+
+        el.addEventListener('input', (e) => {
+            const start = el.selectionStart;
+            const oldValue = el.value;
+            el.value = formatarMoeda(oldValue);
+            // tenta manter o cursor na posição correta após a formatação
+            const diff = el.value.length - oldValue.length;
+            el.selectionStart = el.selectionEnd = start + diff;
+        });
+
+        el.addEventListener('blur', () => {
+            if (el.value !== '') {
+                el.value = formatarMoeda(el.value);
+            }
+        });
+    });
+}
+
+// inicializa imediatamente já que o script está no fim do body
+initCurrencyInputs();
 
 function calcularIdade(dataNascimento) {
     const hoje = new Date();
