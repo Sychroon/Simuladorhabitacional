@@ -24,6 +24,9 @@ function abrirModalPrazoEntrega() {
 function abrirModalInfo() {
     document.getElementById("modalInfo").style.display = "flex";
 }
+function abrirModalCheck() {
+    document.getElementById("modalCheck").style.display = "flex";
+}
 
 
 function fecharModal() {

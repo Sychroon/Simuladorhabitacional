@@ -107,6 +107,10 @@
                 </section>
             </div>
             <div class="card-check">
+                <!-- small info button in upper-right corner -->
+                <span class="info-small" onclick="abrirModalCheck()">
+                    <i class="fa-solid fa-circle-info"></i>
+                </span>
 
                 <label class="check-item">
                     <input type="checkbox" id="dependentes">
@@ -251,6 +255,25 @@
                 <p>
                     A renda mensal bruta é a soma do valor total recebido antes de descontos como
                     impostos, INSS ou outros benefícios de todos os compradores.
+                </p>
+            </div>
+        </div>
+        <div class="modal" id="modalCheck">
+            <div class="modal-content">
+                <span class="fechar" onclick="fecharModal()">&times;</span>
+                <h3>Dependente <br> </h3>
+                <p><br>
+                    Dependente é toda pessoa que dependa financeiramente de você e resida no mesmo imóvel.
+                    Caso esteja realizando a compra com outra pessoa, a Caixa já considera que existe
+                    um dependente na composição familiar.
+                </p>
+
+                <h3><br> Deposito FGTS</h3>
+                <p>
+                    <br> É considerado cotista do FGTS quem possui, no total, três anos ou mais de
+                    carteira assinada, mesmo que esse período tenha sido em empresas diferentes.
+                    Por exemplo: um ano em uma empresa e dois anos em outra já somam três anos.
+                    Se você atender aos critérios, pode marcar as opções correspondentes.
                 </p>
             </div>
         </div>

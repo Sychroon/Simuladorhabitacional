@@ -37,6 +37,22 @@ h3 {
     position: relative;
 }
 
+/* specific tweaks for the info modal: limit height and enable scroll */
+#modalInfo .modal-content2 {
+    max-height: 70vh;
+    overflow-y: auto;
+    /* slightly narrower so text doesn't span too wide */
+    width: 90%;
+    max-width: 400px;
+    padding-right: 20px;
+    /* give room for scrollbar */
+}
+
+#modalInfo .modal-content2 p {
+    line-height: 1.5;
+}
+
+
 /* ===== RESPONSIVO PARA MOBILE ===== */
 
 /* Tablets e telas pequenas (até 768px) */
@@ -51,6 +67,13 @@ h3 {
         width: 85%;
         max-width: 500px;
         padding: 20px;
+    }
+
+    /* smaller info modal limits */
+    #modalInfo .modal-content2 {
+        max-height: 60vh;
+        max-width: 400px;
+        padding-right: 18px;
     }
 
     h3 {
@@ -83,6 +106,12 @@ h3 {
         max-width: 100%;
         padding: 16px;
         border-radius: 12px;
+    }
+
+    /* info modal smaller height/mobile scroll */
+    #modalInfo .modal-content2 {
+        max-height: 60vh;
+        padding-right: 14px;
     }
 
     h3 {

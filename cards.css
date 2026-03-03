@@ -80,6 +80,20 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    position: relative;
+}
+
+.card-check .info-small {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    color: #1e40af;
+    font-size: 1.2em;
+}
+
+.card-check .info-small:hover {
+    color: #2563eb;
 }
 
 .Card-Header {
@@ -457,6 +471,12 @@
         padding: 12px;
         gap: 10px;
         border-radius: 10px;
+    }
+
+    .card-check .info-small {
+        top: 6px;
+        right: 6px;
+        font-size: 1.1em;
     }
 
     .Card-Header {
