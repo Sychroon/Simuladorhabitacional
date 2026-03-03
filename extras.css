@@ -7,10 +7,42 @@
     max-width: 100%;
     overflow: auto;
 
-    padding: 10px;
+    padding: 2px 10px 10px 10px;
+    /* menos espaço no topo */
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #f9fafb;
+}
+
+/* position info icon corner */
+.Card-CF {
+    position: relative;
+}
+
+.Card-Info {
+    /* inline flex container to center text and push icon right */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2px 4px;
+    /* slightly larger vertical padding */
+}
+
+.Card-Info-text {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    /* maior */
+    font-weight: 600;
+    /* mais grosso */
+    color: #1d243a;
+}
+
+.Card-Info i {
+    color: #6b7280;
+    /* cinza menos destacado */
+    margin-left: 4px;
 }
 
 .Resumo-Financeiro-Fixos {
@@ -25,8 +57,10 @@
 .Resumo-Financeiro-Lista {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 2px;
+    /* ainda menor distância entre linhas */
+    margin-top: 0px;
+    /* nenhum espaço acima */
 }
 
 
@@ -34,9 +68,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 300px;
+    min-width: 200px;
+    /* permitir agrupamento mais compacto */
+    padding: 1px 6px;
 
-    padding: 4px 8px;
+    padding: 2px 6px;
 }
 
 .Resumo-Item.Total {

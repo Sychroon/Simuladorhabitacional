@@ -22,6 +22,18 @@ body {
 
 .Card-Fino {
     display: flex;
+    align-items: center;
+}
+
+.Card-Fino p {
+    margin: 0;
+    padding-right: 6px;
+}
+
+.Card-Fino input {
+    flex: 1;
+    min-width: 0;
+    /* allow input to shrink properly inside flex container */
 }
 
 .Main-Conteiner {
@@ -36,6 +48,18 @@ body {
     outline: none;
     background: transparent;
     box-shadow: none;
+}
+
+/* erro em campo de entrada */
+.input-error {
+    color: #b91c1c;
+    /* border removed as requested */
+    border: none;
+}
+
+/* placeholder vermelho quando há erro */
+.input-error::placeholder {
+    color: #b91c1c;
 }
 
 /* remove as setinhas do number */
@@ -96,6 +120,29 @@ body {
 }
 
 .btn-calcular:active {
+    transform: scale(0.98);
+}
+
+/* delete/clear button uses same styling but smaller width */
+.btn-limpar {
+    margin-left: 10px;
+    padding: 14px 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-limpar i {
+    margin: 0;
+}
+
+.btn-limpar:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+}
+
+.btn-limpar:active {
     transform: scale(0.98);
 }
 

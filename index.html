@@ -126,6 +126,9 @@
             <div class="center">
                 <button class="btn-calcular" onclick="atualizarParcela()">Calcular
                     Financiamento</button>
+                <button class="btn-calcular btn-limpar" onclick="limparTudo()" title="Limpar campos">
+                    <i class="fa-solid fa-eraser"></i>
+                </button>
             </div>
         </div>
 
@@ -168,9 +171,8 @@
             </section>
             <section class="Card-CF Scrollable-Container">
                 <div class="Card-Info" onclick="abrirModalInfo()">
-                    <i class="Info-Icon fa-solid fa-circle-info" id="infoIcon">
-                    </i>
-                    <p style="font-size: 15px; color: #1d243a;">Saiba mais</p>
+                    <span class="Card-Info-text">Detalhamento da parcela</span>
+                    <i class="Info-Icon fa-solid fa-circle-info" id="infoIcon"></i>
                 </div>
                 <div class="Resumo-Financeiro-Lista">
                     <div class="Resumo-Item">

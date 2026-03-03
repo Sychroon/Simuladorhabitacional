@@ -25,6 +25,24 @@ const elementos = {
     porcentagemRenda: document.getElementById('PorcentagemRenda'),
 };
 
+// Helper para mostrar mensagem de erro dentro de um campo
+function showError(inputElement, message) {
+    if (!inputElement) return;
+    inputElement.classList.add('input-error');
+    inputElement.value = '';
+    inputElement.placeholder = message;
+}
+
+// Remove todas as marcações de erro
+function clearErrors() {
+    for (let key in elementos) {
+        const el = elementos[key];
+        if (el && el.classList) {
+            el.classList.remove('input-error');
+        }
+    }
+}
+
 
 const taxaAdministracao = 25; // R$ fixos
 
@@ -116,6 +134,9 @@ function calcularPrazo(idademeses, prazoEntregaMeses) {
 
 function atualizarParcela() {
 
+    // remover mensagens de erro anteriores
+    clearErrors();
+
     // PEGAR VALORES DO FORMULÁRIO
 
     const renda = moedaParaNumero(elementos.rendaMensal.value);
@@ -126,28 +147,54 @@ function atualizarParcela() {
     const cotista = elementos.cotista.checked;
     const ncompradores = parseInt(elementos.ncompradores.value);
 
-    if (
-        isNaN(renda) ||
-        isNaN(valordeAvaliacao) ||
-        isNaN(valordeVenda) ||
-        !dataNascimento ||
-        isNaN(prazoEntrega)
-    ) {
-        elementos.parcelaMensal.textContent = "Preencha todos os campos";
+    // validações individuais com feedback inline
+    if (isNaN(renda)) {
+        showError(elementos.rendaMensal, "Informe renda válida");
+        return;
+    }
+    if (isNaN(valordeAvaliacao)) {
+        showError(elementos.valordeAvaliacao, "Informe valor de avaliação");
+        return;
+    }
+    if (isNaN(valordeVenda)) {
+        showError(elementos.valordeVenda, "Informe valor de venda");
+        return;
+    }
+    if (!dataNascimento) {
+        showError(elementos.dataNascimento, "Escolha a data de nascimento");
+        return;
+    }
+    if (isNaN(prazoEntrega)) {
+        showError(elementos.prazoEntrega, "Informe prazo de entrega");
         return;
     }
 
 
     // VALIDAÇÃO CONTRA NEGATIVOS - não faz sentido ter valores negativos para esses campos
 
-    if (renda < 0 || valordeAvaliacao < 0 || valordeVenda < 0 || prazoEntrega < 0 || ncompradores < 0) {
-        elementos.parcelaMensal.textContent = "Valores não podem ser negativos";
+    if (renda < 0) {
+        showError(elementos.rendaMensal, "Renda não pode ser negativa");
+        return;
+    }
+    if (valordeAvaliacao < 0) {
+        showError(elementos.valordeAvaliacao, "Valor não pode ser negativo");
+        return;
+    }
+    if (valordeVenda < 0) {
+        showError(elementos.valordeVenda, "Valor não pode ser negativo");
+        return;
+    }
+    if (prazoEntrega < 0) {
+        showError(elementos.prazoEntrega, "Prazo não pode ser negativo");
+        return;
+    }
+    if (ncompradores < 0) {
+        showError(elementos.ncompradores, "Número inválido");
         return;
     }
     if (prazoEntrega > 36) {
-        elementos.parcelaMensal.textContent = "Prazo de entrega não pode ser maior que 36 meses";
+        showError(elementos.prazoEntrega, "Máx 36 meses");
         return;
-
     }
 
 
@@ -156,7 +203,7 @@ function atualizarParcela() {
     const idadeM = calcularIdade(dataNascimento);
     const n = calcularPrazo(idadeM, prazoEntrega);
     if (idadeA < 18) {
-        elementos.parcelaMensal.textContent = "Data de nascimento inválida";
+        showError(elementos.dataNascimento, "Menor de 18 anos");
         return;
     }
 
@@ -246,4 +293,33 @@ function atualizarParcela() {
         total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
     elementos.porcentagemRenda.textContent = PORCENTAGEM_RENDA.toFixed(2) + "%";
+}
+
+// limpa todos os campos e resultados
+function limparTudo() {
+    clearErrors();
+
+    // inputs
+    elementos.rendaMensal.value = '';
+    elementos.valordeAvaliacao.value = '';
+    elementos.valordeVenda.value = '';
+    elementos.dataNascimento.value = '';
+    elementos.prazoEntrega.value = '';
+    elementos.ncompradores.value = '';
+    elementos.cotista.checked = false;
+
+    // resultados
+    elementos.parcelaMensal.textContent = '';
+    elementos.valorAvaliacaoResultado.textContent = '';
+    elementos.valorVendaResultado.textContent = '';
+    elementos.valorFinanciado.textContent = '';
+    elementos.entrada.textContent = '';
+    elementos.taxaDeJuros.textContent = '';
+    elementos.prazoYM.textContent = '';
+    elementos.parcelMax.textContent = '';
+    elementos.DFIResultado.textContent = '';
+    elementos.MIPResultado.textContent = '';
+    elementos.TxAdm.textContent = '';
+    elementos.totalGeral.textContent = '';
+    elementos.porcentagemRenda.textContent = '';
 }
