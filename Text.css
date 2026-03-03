@@ -67,36 +67,3 @@
     font-size: 14px;
     font-weight: 500;
 }
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    width: 300px;
-    position: relative;
-}
-
-.fechar {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    cursor: pointer;
-    font-size: 30px;
-}
-
-.modal-content2 {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    width: 450px;
-    position: relative;
-}
