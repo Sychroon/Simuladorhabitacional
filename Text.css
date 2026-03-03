@@ -67,3 +67,87 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+/* ===== RESPONSIVO PARA MOBILE ===== */
+
+/* Tablets e telas pequenas (até 768px) */
+@media (max-width: 768px) {
+    .Text-Primario {
+        font-size: 13px;
+        padding: 6px 0px 6px 4px;
+    }
+
+    .Text-Negrito-Um {
+        font-size: 18px;
+    }
+
+    .text-transparente-um {
+        font-size: 13px;
+    }
+
+    .card-logo {
+        gap: 12px;
+        padding: 8px 10px;
+        border-radius: 12px;
+    }
+
+    .logo-icon {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .logo-icon i {
+        font-size: 22px;
+    }
+
+    .logo-title {
+        font-size: 18px;
+        letter-spacing: 0.5px;
+    }
+
+    .logo-subtitle {
+        font-size: 12px;
+    }
+}
+
+/* Dispositivos móveis (até 480px) */
+@media (max-width: 480px) {
+    .Text-Primario {
+        font-size: 12px;
+        padding: 5px 0px 5px 3px;
+    }
+
+    .Text-Negrito-Um {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .text-transparente-um {
+        font-size: 11px;
+    }
+
+    .card-logo {
+        gap: 10px;
+        padding: 6px 8px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-icon {
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .logo-icon i {
+        font-size: 18px;
+    }
+
+    .logo-title {
+        font-size: 14px;
+        letter-spacing: 0px;
+    }
+
+    .logo-subtitle {
+        font-size: 11px;
+    }
+}

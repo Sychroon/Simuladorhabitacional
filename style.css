@@ -89,3 +89,59 @@ body {
 .btn-calcular:active {
     transform: scale(0.98);
 }
+
+/* ===== RESPONSIVO PARA MOBILE ===== */
+
+/* Tablets e telas pequenas (até 768px) */
+@media (max-width: 768px) {
+    .Main-Conteiner {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-calcular {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+
+    .center {
+        padding-top: 30px;
+    }
+}
+
+/* Dispositivos móveis (até 480px) */
+@media (max-width: 480px) {
+    .Main-Conteiner {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .btn-calcular {
+        width: 90%;
+        max-width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .btn-calcular:hover {
+        transform: translateY(-1px);
+    }
+
+    .center {
+        padding-top: 20px;
+    }
+
+    .check-item {
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .check-item input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .input-transparente {
+        font-size: 14px;
+        padding-left: 3px;
+    }
+}

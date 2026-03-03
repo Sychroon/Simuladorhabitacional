@@ -304,3 +304,194 @@
 .Card-Info p {
     margin: 0;
 }
+
+/* ===== RESPONSIVO PARA MOBILE ===== */
+
+/* Tablets e telas pequenas (até 768px) */
+@media (max-width: 768px) {
+    .Grid-zone-Right {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .Card {
+        width: 100%;
+        height: auto;
+        min-height: 700px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+    .Card-Type1,
+    .Card-Type2,
+    .Card-Type3,
+    .Card-Type4,
+    .Card-Type5,
+    .Card-Type6 {
+        height: auto;
+        padding: 12px;
+    }
+
+    .Card-Type1 p:first-child,
+    .Card-Type2 p:first-child,
+    .Card-Type3 p:first-child,
+    .Card-Type4 p:first-child,
+    .Card-Type5 p:first-child,
+    .Card-Type6 p:first-child {
+        font-size: 12px;
+    }
+
+    .Card-Type1 p:last-child,
+    .Card-Type2 p:last-child,
+    .Card-Type3 p:last-child,
+    .Card-Type4 p:last-child,
+    .Card-Type5 p:last-child,
+    .Card-Type6 p:last-child {
+        font-size: 20px;
+    }
+
+    .Card-Type-Big p:nth-child(2) {
+        font-size: 24px;
+    }
+
+    .card-check {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .Card-Header {
+        padding: 12px;
+        gap: 4px;
+    }
+
+    .Card-CF {
+        gap: 12px;
+    }
+
+    .Card-CF div {
+        padding: 12px;
+    }
+
+    .Card-Fino {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Dispositivos móveis (até 480px) */
+@media (max-width: 480px) {
+    .Grid-zone-Right {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .Card {
+        width: 95%;
+        height: auto;
+        min-height: 600px;
+        padding: 16px;
+        margin: 15px auto;
+        border-radius: 12px;
+    }
+
+    .Card:hover {
+        transform: translateY(-2px);
+    }
+
+    .Card-Type1,
+    .Card-Type2,
+    .Card-Type3,
+    .Card-Type4,
+    .Card-Type5,
+    .Card-Type6 {
+        height: auto;
+        padding: 10px;
+        border-radius: 10px;
+        gap: 4px;
+    }
+
+    .Card-Type1 p:first-child,
+    .Card-Type2 p:first-child,
+    .Card-Type3 p:first-child,
+    .Card-Type4 p:first-child,
+    .Card-Type5 p:first-child,
+    .Card-Type6 p:first-child {
+        font-size: 11px;
+    }
+
+    .Card-Type1 p:last-child,
+    .Card-Type2 p:last-child,
+    .Card-Type3 p:last-child,
+    .Card-Type4 p:last-child,
+    .Card-Type5 p:last-child,
+    .Card-Type6 p:last-child {
+        font-size: 18px;
+    }
+
+    .Card-Type-Big {
+        padding: 16px;
+        gap: 6px;
+        border-radius: 12px;
+    }
+
+    .Card-Type-Big p:first-child {
+        font-size: 12px;
+    }
+
+    .Card-Type-Big p:nth-child(2) {
+        font-size: 20px;
+    }
+
+    .Card-Type-Big p:last-child {
+        font-size: 12px;
+    }
+
+    .card-check {
+        padding: 12px;
+        gap: 10px;
+        border-radius: 10px;
+    }
+
+    .Card-Header {
+        padding: 10px;
+        gap: 4px;
+        border-radius: 12px;
+    }
+
+    .Card-CF {
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .Card-CF div {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .Card-CF p:first-child {
+        font-size: 12px;
+    }
+
+    .Card-Fino {
+        padding: 10px 12px;
+        margin-bottom: 12px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .Card-Heder {
+        height: 30px;
+        padding-left: 8px;
+        border-radius: 10px;
+    }
+
+    .Card-Icon {
+        gap: 1px;
+    }
+
+    .Card-Info {
+        gap: 6px;
+    }
+}

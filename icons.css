@@ -14,3 +14,49 @@
     font-size: 1.3em;
     color: #1e40af;
 }
+
+/* ===== RESPONSIVO PARA MOBILE ===== */
+
+/* Tablets e telas pequenas (até 768px) */
+@media (max-width: 768px) {
+
+    .icon-renda,
+    .icon-house,
+    .icon-clock,
+    .icon-arrow,
+    .icon-calendar,
+    .icon-users,
+    .icon-users2 {
+        font-size: 0.9em;
+    }
+
+    .icon-calculator {
+        font-size: 0.9em;
+    }
+
+    .Info-Icon {
+        font-size: 1.2em;
+    }
+}
+
+/* Dispositivos móveis (até 480px) */
+@media (max-width: 480px) {
+
+    .icon-renda,
+    .icon-house,
+    .icon-clock,
+    .icon-arrow,
+    .icon-calendar,
+    .icon-users,
+    .icon-users2 {
+        font-size: 0.8em;
+    }
+
+    .icon-calculator {
+        font-size: 0.8em;
+    }
+
+    .Info-Icon {
+        font-size: 1em;
+    }
+}

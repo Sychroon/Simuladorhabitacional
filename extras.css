@@ -101,3 +101,106 @@
     width: 55px;
 
 }
+
+/* ===== RESPONSIVO PARA MOBILE ===== */
+
+/* Tablets e telas pequenas (até 768px) */
+@media (max-width: 768px) {
+    .Top-Bar {
+        padding: 14px 24px;
+    }
+
+    .logo-icon {
+        font-size: 24px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+    .Scrollable-Container {
+        max-height: 250px;
+        gap: 15px;
+        padding: 8px;
+    }
+
+    .Resumo-Financeiro-Fixos {
+        gap: 30px;
+    }
+
+    .Resumo-Item {
+        min-width: 200px;
+        padding: 3px 6px;
+        font-size: 14px;
+    }
+
+    .card-check {
+        gap: 12px;
+        padding: 14px;
+    }
+}
+
+/* Dispositivos móveis (até 480px) */
+@media (max-width: 480px) {
+    .Top-Bar {
+        padding: 12px 16px;
+        background: linear-gradient(90deg, #1e3a8a, #1e40af);
+    }
+
+    .logo-icon {
+        font-size: 20px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+        letter-spacing: 0px;
+    }
+
+    .Scrollable-Container {
+        max-height: 200px;
+        gap: 12px;
+        padding: 8px;
+        border-radius: 6px;
+    }
+
+    .Resumo-Financeiro-Fixos {
+        gap: 15px;
+        flex-wrap: wrap;
+        padding-bottom: 8px;
+    }
+
+    .Resumo-Item {
+        min-width: 100%;
+        padding: 2px 4px;
+        font-size: 12px;
+    }
+
+    .Resumo-Label {
+        font-size: 12px;
+    }
+
+    .Resumo-Valor {
+        font-size: 12px;
+    }
+
+    .Resumo-Item.Total {
+        font-size: 13px;
+        padding-top: 4px;
+    }
+
+    .BOX {
+        height: 28px;
+        width: 55px;
+        border-radius: 4px;
+    }
+
+    .logo-image {
+        height: 22px;
+        width: 50px;
+    }
+
+    .Resumo-Financeiro-Lista {
+        gap: 8px;
+        margin-top: 8px;
+    }
+}
