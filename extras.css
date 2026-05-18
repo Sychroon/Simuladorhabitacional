@@ -15,10 +15,6 @@
 }
 
 /* position info icon corner */
-.Card-CF {
-    position: relative;
-}
-
 .Card-Info {
     /* inline flex container to center text and push icon right */
     display: flex;
@@ -44,15 +40,6 @@
     /* cinza menos destacado */
     margin-left: 4px;
 }
-
-.Resumo-Financeiro-Fixos {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
 
 .Resumo-Financeiro-Lista {
     display: flex;
@@ -98,44 +85,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-}
-
-.logo-icon {
-    font-size: 28px;
-}
-
-.logo-text {
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.BOX {
-    display: flex;
-    padding: 5px;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    height: 30px;
-    width: 60px;
-    border-radius: 5PX;
-
-}
-
-.logo-image {
-
-
-    height: 25px;
-    width: 55px;
-
+    justify-content: space-between;
 }
 
 /* ===== RESPONSIVO PARA MOBILE ===== */
@@ -146,13 +96,6 @@
         padding: 14px 24px;
     }
 
-    .logo-icon {
-        font-size: 24px;
-    }
-
-    .logo-text {
-        font-size: 18px;
-    }
 
     .Scrollable-Container {
         max-height: 250px;
@@ -160,9 +103,6 @@
         padding: 8px;
     }
 
-    .Resumo-Financeiro-Fixos {
-        gap: 30px;
-    }
 
     .Resumo-Item {
         min-width: 200px;
@@ -183,14 +123,7 @@
         background: linear-gradient(90deg, #1e3a8a, #1e40af);
     }
 
-    .logo-icon {
-        font-size: 20px;
-    }
 
-    .logo-text {
-        font-size: 14px;
-        letter-spacing: 0px;
-    }
 
     .Scrollable-Container {
         max-height: 200px;
@@ -199,11 +132,6 @@
         border-radius: 6px;
     }
 
-    .Resumo-Financeiro-Fixos {
-        gap: 15px;
-        flex-wrap: wrap;
-        padding-bottom: 8px;
-    }
 
     .Resumo-Item {
         min-width: 100%;
@@ -222,17 +150,6 @@
     .Resumo-Item.Total {
         font-size: 13px;
         padding-top: 4px;
-    }
-
-    .BOX {
-        height: 28px;
-        width: 55px;
-        border-radius: 4px;
-    }
-
-    .logo-image {
-        height: 22px;
-        width: 50px;
     }
 
     .Resumo-Financeiro-Lista {

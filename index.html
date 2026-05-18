@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="extras.css">
 
-    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -33,314 +35,317 @@
             </div>
         </div>
 
+        <div class="menu-container">
+            <span class="menu-btn"><i class="fa-solid fa-bars" style="color: white;"></i></span>
+
+            <div class="menu">
+                <a href="index.html">Simulador de financiamento</a>
+            </div>
+
     </header>
-    <Main class="Main-Conteiner">
-        <div class="Card">
-            <div class="Card-Header">
-                <p class="Text-Negrito-Um"> <i class="fa-solid fa-calculator icon-calculator"></i> Dados para a
-                    simulação</p>
-                <p class="text-transparente-um">Preencha suas informações para calcular o financiamento</p>
+    <Main>
 
-            </div>
+        <div class="Main-Conteiner">
+            <div class="Card">
+                <div class="Card-Header">
+                    <p class="Text-Negrito-Um"> <i class="fa-solid fa-calculator icon-input"></i> Dados para a
+                        simulação<i class="fa-solid fa-circle-info icon-info" onclick="abrirModalInfoGeral()"></i></p>
+                    <p class="text-transparente-um">Preencha suas informações para calcular o financiamento</p>
 
-            <div class="Card-Mini">
-                <div class="Card-Icon" onclick="abrirModal()">
-                    <i class="fa-solid fa-dollar-sign icon-renda"></i>
-                    <p class="Text-Primario">Renda mensal</p>
-                </div>
-                <section class="Card-Fino">
-                    <p class="text-transparente-um">R$</p>
-                    <input type="text" class="input-transparente input-moeda" id="RendaMensal" placeholder="0,00">
-                </section>
-            </div>
-            <div class="Card-Mini">
-                <div class="Card-Icon" onclick="abrirModalAvaliacao()">
-                    <i class="fa-regular fa-house icon-house"></i>
-                    <p class="Text-Primario"> Valor de avaliação </p>
-                </div>
-                <section class="Card-Fino">
-                    <p class="text-transparente-um">R$</p>
-                    <input type="text" class="input-transparente input-moeda" id="ValordeAvaliacao" placeholder="0,00">
-                </section>
-            </div>
-
-            <div class="Card-Mini">
-                <div class="Card-Icon" onclick="abrirModalValorVenda()">
-                    <i class="fa-solid fa-arrow-trend-up icon-arrow"></i>
-                    <p class="Text-Primario"> Valor de Venda </p>
-                </div>
-                <section class="Card-Fino">
-                    <p class="text-transparente-um">R$</p>
-                    <input type="text" class="input-transparente input-moeda" id="ValordeVenda" placeholder="0,00">
-                </section>
-            </div>
-
-            <div class="Card-Mini">
-                <div class="Card-Icon" onclick="abrirModalDataNascimento()">
-                    <i class="fa-regular fa-calendar-days icon-calendar"></i>
-                    <p class="Text-Primario"> Data de nascimento</p>
-                </div>
-                <section class="Card-Fino">
-                    <input type="date" class="input-transparente input-moeda" id="Idade" placeholder="Coloque a idade">
-                </section>
-            </div>
-
-            <div class="Card-Mini">
-                <div class="Card-Icon" onclick="abrirModalQuantidadeCompradores()">
-                    <i class="fa-solid fa-users icon-users"></i>
-                    <p class="Text-Primario"> Quantidade de Compradores </p>
-                </div>
-                <section class="Card-Fino">
-                    <input type="number" class="input-transparente input-moeda" id="NCompradores"
-                        placeholder="Numero de compradores">
-                </section>
-            </div>
-
-            <div class="Card-Mini">
-                <div class="Card-Icon" onclick="abrirModalPrazoEntrega()">
-                    <i class="fa-solid fa-clock icon-clock"></i>
-                    <p class="Text-Primario"> Prazo de entrega do Imóvel </p>
-                </div>
-                <section class="Card-Fino">
-                    <input type="number" class="input-transparente input-moeda" id="PrazoEntrega"
-                        placeholder="Quantidade em Meses">
-                </section>
-            </div>
-            <div class="card-check">
-                <!-- small info button in upper-right corner -->
-                <span class="info-small" onclick="abrirModalCheck()">
-                    <i class="fa-solid fa-circle-info"></i>
-                </span>
-
-                <label class="check-item">
-                    <input type="checkbox" id="dependentes">
-                    <span> <i class="fa-solid fa-users icon-users2"></i> Possuo Dependentes</span>
-                </label>
-
-                <label class="check-item">
-                    <input type="checkbox" id="cotista">
-                    <span>Possuo 3 anos de deposito FGTS</span>
-                </label>
-
-            </div>
-            <div class="center">
-                <button class="btn-calcular" onclick="atualizarParcela()">Calcular
-                    Financiamento</button>
-                <button class="btn-calcular btn-limpar" onclick="limparTudo()" title="Limpar campos">
-                    <i class="fa-solid fa-eraser"></i>
-                </button>
-            </div>
-        </div>
-
-
-
-
-
-        <div class="Card">
-            <div class="Card-Heder">
-                <p class="Text-Negrito-Um">Resultado da simulação</p>
-            </div>
-            <section class="Grid-zone-Right">
-                <div class="Card-Type1">
-                    <p> <i class="fa-regular fa-house" style="padding-right: 5px;"> </i>valor de avaliação </p>
-                    <p> <span id="Valordeavaliacao"></span></p>
                 </div>
 
-                <div class="Card-Type2">
-                    <p> <i class="fa-solid fa-arrow-trend-up"></i> valor de venda </p>
-                    <P><span id="ValordeVendaResultado"></span>
-                </div>
-
-                <div class="Card-Type3">
-                    <p><i class="fa-solid fa-hand-holding-dollar"></i> valor financiado</p>
-                    <p> <span id="ValorFinanciado"></span></p>
-                </div>
-
-                <div class="Card-Type4">
-                    <p><i class="fa-solid fa-wallet"></i> Entrada </p>
-                    <p> <span id="Entrada"></span></p>
-                </div>
-                <div class="Card-Type5">
-                    <p><i class="fa-solid fa-percent"></i> Taxa de Juros </p>
-                    <p> <span id="TaxadeJuros"></span></p>
-                </div>
-                <div class="Card-Type6">
-                    <p><i class="fa-solid fa-hourglass"></i> Praso </p>
-                    <p> <span id="PrazoYM"></span></p>
-                </div>
-            </section>
-            <section class="Card-CF Scrollable-Container">
-                <div class="Card-Info" onclick="abrirModalInfo()">
-                    <span class="Card-Info-text">Detalhamento da parcela</span>
-                    <i class="Info-Icon fa-solid fa-circle-info" id="infoIcon"></i>
-                </div>
-                <div class="Resumo-Financeiro-Lista">
-                    <div class="Resumo-Item">
-                        <div class="Resumo-Label">Amortização + Juros</div>
-                        <div class="Resumo-Valor" id="ParcelMax"></div>
+                <div class="Card-Mini">
+                    <div class="Card-Icon">
+                        <i class="fa-solid fa-dollar-sign icon-input"></i>
+                        <p class="Text-Primario">Renda familiar mensal </p>
                     </div>
-                    <div class="Resumo-Item">
-                        <div class="Resumo-Label">Seguro DFI</div>
-                        <div class="Resumo-Valor" id="DFI"></div>
-                    </div>
-                    <div class="Resumo-Item">
-                        <div class="Resumo-Label">Seguro MIP</div>
-                        <div class="Resumo-Valor" id="MIP"></div>
-                    </div>
-                    <div class="Resumo-Item">
-                        <div class="Resumo-Label">Taxa de Administração</div>
-                        <div class="Resumo-Valor" id="TaxaAdmin"></div>
-                    </div>
-                    <div class="Resumo-Item Total">
-                        <div class="Resumo-Label">Total</div>
-                        <div class="Resumo-Valor" id="TotalGeral"></div>
-                    </div>
+                    <section class="Card-Fino">
+                        <p class="text-transparente-um">R$</p>
+                        <input type="text" class="input-transparente input-moeda" id="RendaMensal" placeholder="0,00">
+                    </section>
                 </div>
-            </section>
-            <div class="Card-Type-Big">
-                <p> parcela mensal</p>
-                <p><span id="ParcelaMensal"></span> </p>
-                <p><span id="PorcentagemRenda"></span> da renda total </p>
+                <div class="Card-Mini">
+                    <div class="Card-Icon">
+                        <i class="fa-regular fa-house icon-input"></i>
+                        <p class="Text-Primario"> Valor de avaliação </p>
+                    </div>
+                    <section class="Card-Fino">
+                        <p class="text-transparente-um">R$</p>
+                        <input type="text" class="input-transparente input-moeda" id="ValordeAvaliacao"
+                            placeholder="0,00">
+
+                    </section>
+                </div>
+
+                <div class="Card-Mini">
+                    <div class="Card-Icon">
+                        <i class="fa-solid fa-arrow-trend-up icon-input"></i>
+                        <p class="Text-Primario"> Valor de Venda </p>
+                    </div>
+                    <section class="Card-Fino">
+                        <p class="text-transparente-um">R$</p>
+                        <input type="text" class="input-transparente input-moeda" id="ValordeVenda" placeholder="0,00">
+                    </section>
+                </div>
+
+                <div class="Card-Mini">
+                    <div class="Card-Icon">
+                        <i class="fa-regular fa-calendar-days icon-input"></i>
+                        <p class="Text-Primario"> Data de nascimento</p>
+                    </div>
+                    <section class="Card-Fino">
+                        <input type="date" class="input-transparente input-moeda" id="Idade"
+                            placeholder="Coloque a idade">
+                    </section>
+                </div>
+
+                <div class="Card-Mini">
+                    <div class="Card-Icon">
+                        <i class="fa-solid fa-users icon-input"></i>
+                        <p class="Text-Primario"> Quantidade de Compradores </p>
+                    </div>
+                    <section class="Card-Fino">
+                        <input type="number" class="input-transparente input-moeda" id="NCompradores"
+                            placeholder="Numero de compradores">
+
+                    </section>
+                </div>
+
+                <div class="Card-Mini">
+                    <div class="Card-Icon">
+                        <i class="fa-solid fa-clock icon-input"></i>
+                        <p class="Text-Primario"> Prazo de entrega do Imóvel </p>
+                    </div>
+                    <section class="Card-Fino">
+                        <input type="number" class="input-transparente input-moeda" id="PrazoEntrega"
+                            placeholder="Quantidade em Meses">
+                    </section>
+                </div>
+                <div class="card-check">
+                    <!-- small info button in upper-right corner -->
+                    <span class="info-small" onclick="abrirModalCheck()">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </span>
+
+                    <label class="check-item">
+                        <input type="checkbox" id="dependentes">
+                        <span> <i class="fa-solid fa-users icon-input"></i> Possuo Dependentes</span>
+                    </label>
+
+                    <label class="check-item">
+                        <input type="checkbox" id="cotista">
+                        <span>Possuo 3 anos de deposito FGTS</span>
+                    </label>
+
+                </div>
+                <div class="center">
+                    <button class="btn-calcular" onclick="atualizarParcela()">Calcular
+                        Financiamento</button>
+                    <button class="btn-calcular btn-limpar" onclick="limparTudo()" title="Limpar campos">
+                        <i class="fa-solid fa-eraser"></i>
+                    </button>
+                </div>
             </div>
 
 
 
 
-        </div>
 
-        <div class="modal" id="modalInfo">
-            <div class="modal-content2">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
+            <div class="Card">
+                <div class="Card-Heder">
+                    <p class="Text-Negrito-Um">Resultado da simulação</p>
+                </div>
+                <section class="Grid-zone-Right">
+                    <div class="Card-Type1">
+                        <p> <i class="fa-regular fa-house" style="padding-right: 5px;"> </i>valor de avaliação </p>
+                        <p> <span id="Valordeavaliacao"></span></p>
+                    </div>
 
-                <h3>Amortização + Juros</h3>
-                <p>
-                    Amortização mais juros refere-se à parte principal da parcela do financiamento.<br><br>
+                    <div class="Card-Type2">
+                        <p> <i class="fa-solid fa-arrow-trend-up"></i> valor de venda </p>
+                        <P><span id="ValordeVendaResultado"></span>
+                    </div>
 
-                    A amortização é a redução do saldo devedor, enquanto os juros são o custo cobrado
-                    pelo banco sobre o valor financiado.<br><br>
+                    <div class="Card-Type3">
+                        <p><i class="fa-solid fa-hand-holding-dollar"></i> valor financiado</p>
+                        <p> <span id="ValorFinanciado"></span></p>
+                    </div>
 
-                    Ambos compõem a parcela base do financiamento.
-                </p>
+                    <div class="Card-Type4">
+                        <p><i class="fa-solid fa-wallet"></i> Entrada </p>
+                        <p> <span id="Entrada"></span></p>
+                    </div>
+                    <div class="Card-Type5">
+                        <p><i class="fa-solid fa-percent"></i> Taxa de Juros </p>
+                        <p> <span id="TaxadeJuros"></span></p>
+                    </div>
+                    <div class="Card-Type6">
+                        <p><i class="fa-solid fa-hourglass"></i> Prazo </p>
+                        <p> <span id="PrazoYM"></span></p>
+                    </div>
+                </section>
+                <section class="Card-CF Scrollable-Container">
+                    <div class="Card-Info" onclick="abrirModalInfo()">
+                        <span class="Card-Info-text">Detalhamento da parcela</span>
+                        <i class="icon-info fa-solid fa-circle-info" id="infoIcon"></i>
+                    </div>
+                    <div class="Resumo-Financeiro-Lista">
+                        <div class="Resumo-Item">
+                            <div class="Resumo-Label">Amortização + Juros</div>
+                            <div class="Resumo-Valor" id="ParcelMax"></div>
+                        </div>
+                        <div class="Resumo-Item">
+                            <div class="Resumo-Label">Seguro DFI</div>
+                            <div class="Resumo-Valor" id="DFI"></div>
+                        </div>
+                        <div class="Resumo-Item">
+                            <div class="Resumo-Label">Seguro MIP</div>
+                            <div class="Resumo-Valor" id="MIP"></div>
+                        </div>
+                        <div class="Resumo-Item">
+                            <div class="Resumo-Label">Taxa de Administração</div>
+                            <div class="Resumo-Valor" id="TaxaAdmin"></div>
+                        </div>
+                        <div class="Resumo-Item Total">
+                            <div class="Resumo-Label">Total</div>
+                            <div class="Resumo-Valor" id="TotalGeral"></div>
+                        </div>
+                    </div>
+                </section>
+                <div class="Card-Type-Big">
+                    <p> parcela mensal</p>
+                    <p><span id="ParcelaMensal"></span> </p>
+                    <p><span id="PorcentagemRenda"></span> da renda total </p>
+                </div>
 
-                <h3><br>Seguro DFI</h3>
-                <p>
-                    O Seguro DFI (Danos Físicos ao Imóvel) é a cobertura contra danos físicos ao imóvel,
-                    como incêndio, desmoronamento, enchente ou outros eventos previstos em contrato.<br><br>
 
-                    Em caso de sinistro, o seguro cobre os prejuízos conforme as condições estabelecidas.
 
-                </p>
 
-                <h3><br>Seguro MIP</h3>
-                <p>
-                    O Seguro MIP (Morte e Invalidez Permanente) é a cobertura que garante a quitação
-                    total ou parcial do saldo devedor em caso de morte ou invalidez permanente do(s)
-                    comprador(es).<br><br>
-
-                    A quitação ocorre de forma proporcional à participação de cada
-                    proponente na renda considerada para o financiamento.
-
-                </p>
-
-                <h3><br>Taxa de Administração</h3>
-                <p>
-                    A taxa de administração é o valor cobrado pela instituição financeira para manter
-                    e administrar o contrato de financiamento durante todo o período da operação.
-                </p>
             </div>
-        </div>
 
-        <div class="modal" id="modalRenda">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
-                <h3>Renda Mensal</h3>
-                <p>
-                    A renda mensal bruta é a soma do valor total recebido antes de descontos como
-                    impostos, INSS ou outros benefícios de todos os compradores.
-                </p>
-            </div>
-        </div>
-        <div class="modal" id="modalCheck">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
-                <h3>Dependente <br> </h3>
-                <p><br>
-                    Dependente é toda pessoa que dependa financeiramente de você e resida no mesmo imóvel.
-                    Caso esteja realizando a compra com outra pessoa, a Caixa já considera que existe
-                    um dependente na composição familiar.
-                </p>
+            <div class="modal" id="modalInfo">
+                <div class="modal-content2">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
 
-                <h3><br> Deposito FGTS</h3>
-                <p>
-                    <br> É considerado cotista do FGTS quem possui, no total, três anos ou mais de
-                    carteira assinada, mesmo que esse período tenha sido em empresas diferentes.
-                    Por exemplo: um ano em uma empresa e dois anos em outra já somam três anos.
-                    Se você atender aos critérios, pode marcar as opções correspondentes.
-                </p>
+                    <h3>Amortização + Juros</h3>
+                    <p>
+                        Amortização mais juros refere-se à parte principal da parcela do financiamento.<br><br>
+
+                        A amortização é a redução do saldo devedor, enquanto os juros são o custo cobrado
+                        pelo banco sobre o valor financiado.<br><br>
+
+                        Ambos compõem a parcela base do financiamento.
+                    </p>
+
+                    <h3><br>Seguro DFI</h3>
+                    <p>
+                        O Seguro DFI (Danos Físicos ao Imóvel) é a cobertura contra danos físicos ao imóvel,
+                        como incêndio, desmoronamento, enchente ou outros eventos previstos em contrato.<br><br>
+
+                        Em caso de sinistro, o seguro cobre os prejuízos conforme as condições estabelecidas.
+
+                    </p>
+
+                    <h3><br>Seguro MIP</h3>
+                    <p>
+                        O Seguro MIP (Morte e Invalidez Permanente) é a cobertura que garante a quitação
+                        total ou parcial do saldo devedor em caso de morte ou invalidez permanente do(s)
+                        comprador(es).<br><br>
+
+                        A quitação ocorre de forma proporcional à participação de cada
+                        proponente na renda considerada para o financiamento.
+
+                    </p>
+
+                    <h3><br>Taxa de Administração</h3>
+                    <p>
+                        A taxa de administração é o valor cobrado pela instituição financeira para manter
+                        e administrar o contrato de financiamento durante todo o período da operação.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="modal" id="modalAvaliacao">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
-                <h3>Valor de Avaliação</h3>
-                <p>
-                    O valor de avaliação é o valor avaliado do imóvel pela Caixa.
-                    Exemplo: R$ 250.000,00.
-                </p>
+
+            <div class="modal" id="modalCheck">
+                <div class="modal-content">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
+                    <h3>Dependente <br> </h3>
+                    <p><br>
+                        Dependente é toda pessoa que dependa financeiramente de você e resida no mesmo imóvel.
+                        Caso esteja realizando a compra com outra pessoa, a Caixa já considera que existe
+                        um dependente na composição familiar.
+                    </p>
+
+                    <h3><br> Deposito FGTS</h3>
+                    <p>
+                        <br> É considerado cotista do FGTS quem possui, no total, três anos ou mais de
+                        carteira assinada, mesmo que esse período tenha sido em empresas diferentes.
+                        Por exemplo: um ano em uma empresa e dois anos em outra já somam três anos.
+                        Se você atender aos critérios, pode marcar as opções correspondentes.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="modal" id="modalValorVenda">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
-                <h3>Valor de Venda</h3>
-                <p>
-                    O valor de venda é o valor que o proprietário pretende vender o imóvel.
-                    É importante destacar que o valor de avaliação é definido pelo avaliador da Caixa,
-                    enquanto o valor de venda é definido pelo proprietário do imóvel.
-                </p>
-            </div>
-        </div>
-        <div class="modal" id="modalDataNascimento">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
-                <h3>Data de Nascimento</h3>
-                <p>
-                    Digite sua data de nascimento, por favor.
-                </p>
-            </div>
-        </div>
-        <div class="modal" id="modalQuantidadeCompradores">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
-                <h3>Quantidade de Compradores</h3>
-                <p>
-                    Quantidade de pessoas que participarão da compra do imóvel.
-                    Exemplo: duas pessoas podem juntar a renda para comprar o imóvel.
-                </p>
-            </div>
-        </div>
-        <div class="modal" id="modalPrazoEntrega">
-            <div class="modal-content">
-                <span class="fechar" onclick="fecharModal()">&times;</span>
-                <h3>Prazo de Entrega do Imóvel</h3>
-                <p>
-                    O prazo mínimo é 0 e o máximo é 36 meses.
-                    Caso o imóvel esteja na planta, informe o tempo restante para a entrega.
-                    Se o imóvel já estiver pronto, informe 0.
-                </p>
-            </div>
-        </div>
+
+            <div class="modal" id="modalInfoGeral">
+                <div class="modal-content">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
+                    <h3>Renda Familiar Mensal</h3>
+                    <p>
+                        A renda mensal bruta é a soma do valor total recebido antes de descontos como
+                        impostos, INSS ou outros benefícios de todos os compradores.
+                    </p>
 
 
 
+
+                    <h3>Valor de Avaliação</h3>
+                    <p>
+                        O valor de avaliação é o valor avaliado do imóvel pela Caixa.
+                        Exemplo: R$ 250.000,00.
+                    </p>
+
+
+                    <h3>Valor de Venda</h3>
+                    <p>
+                        O valor de venda é o valor que o proprietário pretende vender o imóvel.
+                        É importante destacar que o valor de avaliação é definido pelo avaliador da Caixa,
+                        enquanto o valor de venda é definido pelo proprietário do imóvel.
+                    </p>
+
+                    <h3>Data de Nascimento</h3>
+                    <p>
+                        Digite apenas sua data de nascimento.
+
+                    </p>
+
+                    <h3>Quantidade de Compradores</h3>
+                    <p>
+                        Quantidade de pessoas que participarão da compra do imóvel.
+                        Exemplo: duas pessoas podem juntar a renda para comprar o imóvel.
+                    </p>
+
+                    <h3>Prazo de Entrega do Imóvel</h3>
+                    <p>
+                        O prazo mínimo é 0 e o máximo é 36 meses.
+                        Caso o imóvel esteja na planta, informe o tempo restante para a entrega.
+                        Se o imóvel já estiver pronto, informe 0.
+                    </p>
+                </div>
+            </div>
+
+
+
+        </div>
 
     </Main>
     <footer style="text-align:center; padding:15px; background:#f5f5f5; font-size:14px; color:#666;">
         © 2026 - Criado por Viktor
     </footer>
+    <script src="scriptsjs/utils.js"></script>
+    <script src="scriptsjs/finance.js"></script>
+    <script src="scriptsjs/ui.js"></script>
+    <script src="scriptsjs/simulador.js"></script>
+    <script src="scriptsjs/popups.js"></script>
 
-    <script src="popups.js"></script>
-    <script src="simulador.js"></script>
 </body>
 
 </html>

@@ -16,7 +16,8 @@
 }
 
 h3 {
-    margin-top: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
     color: #1e3a8a;
 
 }
@@ -48,6 +49,15 @@ h3 {
     /* give room for scrollbar */
 }
 
+/* specific tweaks for the "info geral" modal: allow scrolling on overflow */
+#modalInfoGeral .modal-content {
+    max-height: 70vh;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 400px;
+    padding-right: 20px;
+}
+
 #modalInfo .modal-content2 p {
     line-height: 1.5;
 }
@@ -71,6 +81,13 @@ h3 {
 
     /* smaller info modal limits */
     #modalInfo .modal-content2 {
+        max-height: 60vh;
+        max-width: 400px;
+        padding-right: 18px;
+    }
+
+    /* responsive limits for geral info modal */
+    #modalInfoGeral .modal-content {
         max-height: 60vh;
         max-width: 400px;
         padding-right: 18px;
@@ -110,6 +127,12 @@ h3 {
 
     /* info modal smaller height/mobile scroll */
     #modalInfo .modal-content2 {
+        max-height: 60vh;
+        padding-right: 14px;
+    }
+
+    /* mobile scroll for geral info modal */
+    #modalInfoGeral .modal-content {
         max-height: 60vh;
         padding-right: 14px;
     }

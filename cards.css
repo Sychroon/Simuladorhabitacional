@@ -104,14 +104,14 @@
     background: #edecf1;
     border-radius: 16px;
     border-bottom: 1px solid #dfe1e6;
+    position: relative;
+    /* make container a positioning context for the info icon */
 }
 
-.Card-Type-Juros {
-    display: flex;
-    justify-content: espace-between;
-    align-items: center;
+/* avoid title text running under the absolute icon */
+.Card-Header .Text-Negrito-Um {
+    padding-right: 40px;
 }
-
 
 .Card-Type1,
 .Card-Type2,
@@ -152,23 +152,17 @@
 }
 
 
-
-
 .Card-Type1 {
     background: #f3e8ff;
-
 }
 
 .Card-Type1 p:first-child {
     color: #c084fc;
-
 }
 
 .Card-Type1 p:last-child {
     color: #6b21a8;
-
 }
-
 
 .Card-Type2 {
     background: #ede9fe;
@@ -312,18 +306,6 @@
 
 /* CONTROLA A GRID DOS 6 CARDS */
 
-.Card-Info {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-}
-
-.Card-Info p {
-    margin: 0;
-}
-
 /* ===== RESPONSIVO PARA MOBILE ===== */
 
 /* Tablets e telas pequenas (até 768px) */
@@ -341,6 +323,7 @@
         margin: 20px auto;
         max-width: 600px;
     }
+
 
     .Card-Type1,
     .Card-Type2,
@@ -414,6 +397,7 @@
         margin: 15px auto;
         border-radius: 12px;
     }
+
 
     .Card:hover {
         transform: translateY(-2px);
